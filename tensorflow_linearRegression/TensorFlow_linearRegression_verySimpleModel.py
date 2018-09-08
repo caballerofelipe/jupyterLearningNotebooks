@@ -108,7 +108,7 @@ with tf.Session() as sess:
 xrange = np.linspace(-10, 30, 2)
 
 # Plot points
-plt.plot(x, y, 'ro', xrange, xrange*found_a+found_b)
+plt.plot(x, y, 'ro')
 
 # Plot resulting function
 plt.plot(xrange, xrange * found_a + found_b, 'b')
