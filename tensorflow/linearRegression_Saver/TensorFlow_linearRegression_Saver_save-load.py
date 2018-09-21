@@ -66,8 +66,6 @@ final_cost = 0
 # Initializing Saver
 dir_path = os.path.dirname(os.path.realpath(__file__))
 Saver_model_path = dir_path + "/save-load"
-# print(Saver_model_path)
-# exit()
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
@@ -76,9 +74,10 @@ with tf.Session() as sess:
     print("Restoring Model")
     try:
         saver.restore(sess, Saver_model_path + "/model")
-        print("... Restore: Done")
     except (tf.errors.NotFoundError, tf.errors.InvalidArgumentError):
         print("... Model not found, not restoring.")
+    else:
+        print("... Restore: Done")
 
     print("\nTraining")
     for epoch in range(num_epochs):
